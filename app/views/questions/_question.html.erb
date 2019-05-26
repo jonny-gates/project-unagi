@@ -1,0 +1,10 @@
+<div class="list-question">
+  <p><%= question.title %></p>
+  <% question.answers.each do |answer| %>
+    <%= render answer %>
+  <% end %>
+  <%= simple_form_for [question, Answer.new] do |f| %>
+    <%= f.input :title, placeholder: 'Answer text', label: false %>
+    <%= f.submit 'Add answer', class: 'btn btn-info' %>
+  <% end %>
+</div>

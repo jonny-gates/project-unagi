@@ -1,4 +1,6 @@
 class SurveysController < ApplicationController
+  before_action :set_survey, only: :show
+
   def index
     @surveys = Survey.where(user: current_user)
   end
@@ -17,9 +19,17 @@ class SurveysController < ApplicationController
     end
   end
 
+  def show
+    @question = Question.new
+  end
+
   private
 
   def surveys_params
     params.require(:survey).permit(:title)
+  end
+
+  def set_survey
+    @survey = Survey.find(params[:id])
   end
 end
