@@ -12,6 +12,7 @@ class SurveysController < ApplicationController
   def create
     @survey = Survey.new(surveys_params)
     @survey.user = current_user
+    @survey.unique_link = SecureRandom.urlsafe_base64(nil, false)
     if @survey.save
       redirect_to survey_path(@survey)
     else
