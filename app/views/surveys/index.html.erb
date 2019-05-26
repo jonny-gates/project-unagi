@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row my-3">
+    <div class="col">
+      <h1>My Surveys</h1>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col">
+      <div class="card-grid">
+        <% @surveys.each do |survey| %>
+          <%= render survey %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= link_to 'New Survey', new_survey_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
