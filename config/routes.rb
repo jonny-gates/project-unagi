@@ -9,4 +9,10 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers, only: :create
   end
+
+  resources :survey_sessions, only: [:new, :create] do
+    member do
+      get 'answer', to: 'survey_responses#answer'
+    end
+  end
 end

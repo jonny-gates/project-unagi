@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_26_203556) do
+ActiveRecord::Schema.define(version: 2019_05_27_092351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,24 @@ ActiveRecord::Schema.define(version: 2019_05_26_203556) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["survey_id"], name: "index_questions_on_survey_id"
+  end
+
+  create_table "survey_responses", force: :cascade do |t|
+    t.bigint "survey_session_id"
+    t.bigint "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_survey_responses_on_answer_id"
+    t.index ["survey_session_id"], name: "index_survey_responses_on_survey_session_id"
+  end
+
+  create_table "survey_sessions", force: :cascade do |t|
+    t.bigint "survey_id"
+    t.string "participant_name"
+    t.datetime "completed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_id"], name: "index_survey_sessions_on_survey_id"
   end
 
   create_table "surveys", force: :cascade do |t|
@@ -55,5 +73,8 @@ ActiveRecord::Schema.define(version: 2019_05_26_203556) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "surveys"
+  add_foreign_key "survey_responses", "answers"
+  add_foreign_key "survey_responses", "survey_sessions"
+  add_foreign_key "survey_sessions", "surveys"
   add_foreign_key "surveys", "users"
 end
