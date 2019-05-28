@@ -1,6 +1,6 @@
 class SurveyResponsesController < ApplicationController
   def answer
-    @survey_session = SurveySession.find(params[:survey_id])
+    @survey_session = SurveySession.find(params[:id])
     @answer = Answer.find(params[:answer_id])
     @survey_response = SurveyResponse.new(survey_session: @survey_session, answer: @answer)
 

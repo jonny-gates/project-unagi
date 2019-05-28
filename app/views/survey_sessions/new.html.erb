@@ -11,7 +11,7 @@
         <div class="list-question">
           <p><%= question.title %></p>
           <% question.answers.each do |answer| %>
-            <%= link_to answer.title, answer_survey_session_path(@survey_session, answer_id: answer.id), remote: true %>
+            <%= link_to answer.title, answer_survey_session_path(@survey_session, answer_id: answer.id), class: "answer-list-item q#{question.id} a#{answer.id}", remote: true %>
           <% end %>
         </div>
       <% end %>
