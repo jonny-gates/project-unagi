@@ -1,6 +1,11 @@
-
 document.querySelectorAll('.q<%= @answer.question.id %>').forEach(function(answer) {
   answer.classList.remove('answered-item');
 })
 
 document.querySelector('.q<%= @answer.question.id %>.a<%= @answer.id %>').classList.add('answered-item');
+
+document.getElementById('completion-perc').innerText = <%= @completion_perc %>;
+
+<% if @completion_perc.to_i == 100 %>
+document.getElementById('completion-text').innerText = 'Thank you! Your responses have been saved!';
+<% end %>

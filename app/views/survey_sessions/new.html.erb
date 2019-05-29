@@ -3,6 +3,7 @@
     <div class="col-sm-12 col-md-9">
       <h1><%= @survey.title %></h1>
       <h2><%= @survey.user.email %></h2>
+      <p>Completion: <span id="completion-perc">0</span>%</p>
     </div>
   </div>
   <div class="row d-flex justify-content-center">
@@ -15,6 +16,7 @@
           <% end %>
         </div>
       <% end %>
+      <h4 id="completion-text"></h4>
     </div>
   </div>
 </div>
