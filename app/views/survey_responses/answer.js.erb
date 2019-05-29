@@ -4,7 +4,7 @@ document.querySelectorAll('.q<%= @answer.question.id %>').forEach(function(answe
 
 document.querySelector('.q<%= @answer.question.id %>.a<%= @answer.id %>').classList.add('answered-item');
 
-document.getElementById('completion-perc').innerText = <%= @completion_perc %>;
+document.querySelector('.progress-bar .bar').style.width = '<%= "#{ @completion_perc.to_i }%" %>';
 
 <% if @completion_perc.to_i == 100 %>
 document.getElementById('completion-text').innerText = 'Thank you! Your responses have been saved!';

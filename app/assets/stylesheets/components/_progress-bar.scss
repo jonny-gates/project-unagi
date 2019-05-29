@@ -1,0 +1,15 @@
+.progress-bar {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 10px;
+  background: #ebebeb;
+  .bar {
+    height: inherit;
+    width: 0%;
+    background: $green;
+    transition: 0.3s;
+  }
+}
+
