@@ -1,0 +1,14 @@
+.home-banner {
+  height: 100vh;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-bg-image {
+  height: 50vh;
+  width: 40%;
+  background-image: url('career-progress.svg');
+  background-size: cover;
+}
