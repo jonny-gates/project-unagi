@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row my-3">
+    <div class="col">
+      <h1><%= @survey.title %> results</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <% @survey.questions.each do |question| %>
+        <div class="list-question">
+          <p><%= question.title %></p>
+          <% question.answers.each do |answer| %>
+            <div class="answer-list-item">
+              <strong><%= answer.title %>:</strong> <%= answer.survey_responses.count %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

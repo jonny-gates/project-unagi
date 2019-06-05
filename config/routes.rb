@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :surveys, only: [:index, :new, :create, :show] do
     resources :questions, only: :create
+    member do
+      get 'results', to: 'surveys#results'
+    end
   end
 
   resources :questions do

@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-  before_action :set_survey, only: :show
+  before_action :set_survey, only: [:show, :results]
 
   def index
     @surveys = Survey.where(user: current_user)
@@ -22,6 +22,9 @@ class SurveysController < ApplicationController
 
   def show
     @question = Question.new
+  end
+
+  def results
   end
 
   private
