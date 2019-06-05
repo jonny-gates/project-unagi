@@ -3,6 +3,7 @@
     <div class="col">
       <h1><%= @survey.title %></h1>
       <p>Share my survey: <%= survey_link(@survey) %></p>
+      <%= link_to 'See Results', results_survey_path(@survey), class: 'btn btn-primary' %>
     </div>
   </div>
   <div class="row">
