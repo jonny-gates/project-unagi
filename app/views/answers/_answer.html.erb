@@ -1,3 +1,4 @@
 <div class="answer-list-item">
   <%= answer.title %>
+  <%= link_to '<i class="fas fa-trash"></i>'.html_safe, answer_path(answer), method: 'delete'%>
 </div>

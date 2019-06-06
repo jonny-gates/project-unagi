@@ -11,6 +11,16 @@ class AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    @answer = Answer.find(params[:id])
+    if @answer.destroy
+      flash[:notice] = 'Answer deleted'
+    else
+      flash[:alert] = 'Sorry there was an error. Please try again!'
+    end
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
   def answer_params

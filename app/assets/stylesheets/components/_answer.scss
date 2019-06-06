@@ -4,7 +4,12 @@
   color: $white;
   margin-bottom: 8px;
   padding: 8px;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  i {
+    color: $white
+  }
 }
 
 .answered-item {
