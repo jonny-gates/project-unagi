@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-  before_action :set_survey, only: [:show, :results]
+  before_action :set_survey, only: [:show, :results, :destroy]
 
   def index
     @surveys = Survey.where(user: current_user)
@@ -25,6 +25,16 @@ class SurveysController < ApplicationController
   end
 
   def results
+  end
+
+  def destroy
+    if @survey.destroy
+      flash[:notice] = 'Survey deleted!'
+      redirect_to surveys_path
+    else
+      flash[:alert] = 'There was an error deleting the survey. Please try again!'
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private

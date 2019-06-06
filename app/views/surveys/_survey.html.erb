@@ -1,14 +1,17 @@
-<%= link_to survey_path(survey), class: 'card-survey-link' do %>
+
   <div class="card-survey">
     <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
     <div class="card-survey-bg"></div>
     <div class="card-survey-infos">
       <div>
-        <h2><%= survey.title %></h2>
-        <p>Short description here!</p>
+        <h2><%= link_to survey.title, survey_path(survey) %></h2>
       </div>
-      <!-- <h2 class="card-survey-pricing">£99.99</h2> -->
+      <h2 class="card-survey-pricing">
+        <%= link_to '<i class="fas fa-pen"></i>'.html_safe, survey_path(survey) %>
+        <%= link_to '<i class="fas fa-poll"></i>'.html_safe, results_survey_path(survey) %>
+        <%= link_to '<i class="fas fa-trash"></i>'.html_safe, survey_path(survey), method: 'delete'%>
+      </h2>
       <!-- <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-survey-user avatar-bordered"/> -->
     </div>
   </div>
-<% end %>
+
