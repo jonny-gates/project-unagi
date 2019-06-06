@@ -4,7 +4,7 @@
     <%= render answer %>
   <% end %>
   <%= simple_form_for [question, Answer.new] do |f| %>
-    <%= f.input :title, placeholder: 'Answer text', label: false %>
+    <%= f.input :title, placeholder: 'Answer text', label: false, required: true %>
     <%= f.submit 'Add answer', class: 'btn btn-info' %>
   <% end %>
 </div>

@@ -18,7 +18,7 @@
       <hr>
       <h3>Add a new question</h3>
       <%= simple_form_for [@survey, @question] do |f| %>
-        <%= f.input :title %>
+        <%= f.input :title, required: true %>
         <%= f.submit 'Add', class: 'btn btn-success' %>
       <% end %>
     </div>

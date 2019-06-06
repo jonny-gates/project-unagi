@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
     if @answer.save
       redirect_to survey_path(@question.survey)
     else
-      flash[:notice] = 'There was an error saving the question. Please try again'
+      flash[:alert] = 'There was an error saving the question. Please try again'
       redirect_to survey_path(@question.survey)
     end
   end

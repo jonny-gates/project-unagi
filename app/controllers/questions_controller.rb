@@ -6,8 +6,8 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to survey_path(@survey)
     else
-      flash[:notice] = 'Sorry, there was an error. Please try again!'
-      redirect_back(fallback_path: root_path)
+      flash[:alert] = 'Sorry, there was an error. Please try again!'
+      redirect_back(fallback_location: root_path)
     end
   end
 
