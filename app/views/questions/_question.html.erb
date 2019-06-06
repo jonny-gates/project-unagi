@@ -5,6 +5,9 @@
   <% end %>
   <%= simple_form_for [question, Answer.new] do |f| %>
     <%= f.input :title, placeholder: 'Answer text', label: false, required: true %>
-    <%= f.submit 'Add answer', class: 'btn btn-info' %>
+    <div class="d-flex justify-content-between align-items-center">
+      <%= f.submit 'Add answer', class: 'btn btn-info' %>
+      <%= link_to '<i class="fas fa-trash"></i>'.html_safe, question_path(question), method: 'delete'%>
+    </div>
   <% end %>
 </div>
