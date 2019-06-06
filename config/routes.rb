@@ -18,4 +18,5 @@ Rails.application.routes.draw do
       get 'answer', to: 'survey_responses#answer'
     end
   end
+
 end
